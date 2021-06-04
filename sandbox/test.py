@@ -85,10 +85,8 @@ print(img.shape)
 
 predictions_single = probability_model.predict(img)
 
-print(predictions_single)
 
 plot_value_array(1, predictions_single[0], test_labels)
 _ = plt.xticks(range(10), class_names, rotation=45)
 
-print(np.argmax(predictions_single[0]))
 
