@@ -41,7 +41,11 @@ probability_model = tf.keras.Sequential([model,
 predictions = probability_model.predict(test_images)
 
 print("prediction:", np.argmax(predictions[0]))
-
+plt.figure()
+plt.imshow(train_images[0])
+plt.colorbar()
+plt.grid(False)
+plt.show()
 def plot_image(i, predictions_array, true_label, img):
   true_label, img = true_label[i], img[i]
   plt.grid(False)
@@ -73,17 +77,6 @@ def plot_value_array(i, predictions_array, true_label):
   thisplot[predicted_label].set_color('red')
   thisplot[true_label].set_color('blue')
   
-  # Grab an image from the test dataset.
-img = test_images[1]
-
-print(img.shape)
-
-# Add the image to a batch where it's the only member.
-img = (np.expand_dims(img,0))
-
-print(img.shape)
-
-predictions_single = probability_model.predict(img)
 
 
 plot_value_array(1, predictions_single[0], test_labels)
